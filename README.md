@@ -46,6 +46,11 @@ services:
     link: backend
     ...
 ```
+## Steps
+```
+$ https://github.com/eusebiomarquesbenitez/FlaskAngularDocker
+$ cd FlaskAngularDocker
+```
 
 ## Deploy with docker-compose
 
