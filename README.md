@@ -1,6 +1,5 @@
 # FlaskAngularDocker
 
-
 ### React application with a Rust backend and a Postgresql database
 
 Project structure:
@@ -44,22 +43,18 @@ services:
     ports: 4200:4200
     env_file: .env_docker
     link: backend
-    ...
+...
 ```
 ## Steps
 ```
 $ https://github.com/eusebiomarquesbenitez/FlaskAngularDocker
 $ cd FlaskAngularDocker
 ```
-
 ## Deploy with docker-compose
-
 ```
 $ sudo docker-compose build --no-cache && sudo docker-compose up -d --force-recreate
 ```
-
 ## Images Processed
-
 ```
 $ sudo docker images
 REPOSITORY TAG IMAGE ID CREATED SIZE
@@ -67,9 +62,7 @@ frontend-angular latest 815bfd3c2431 17 minutes ago 2.31GB
 backend-flask latest 838264c4d440 19 minutes ago 717MB
 mercadona_postgres latest 978bf016f2c4 21 minutes ago 200MB
 ```
-
 ## Docker Proceses in Deploy
-
 ```
 $ sudo docker ps -a
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
@@ -79,27 +72,21 @@ f593228ca3e5 mercadona_postgres "docker-entrypoint.s…" 11 minutes ago Up 11 mi
 ```
 
 ## Stop and remove the containers
-
+```
 $ sudo docker-compose down
-
+```
 ## To Access Postgre SQL
-
 ```
 $ postgresql://localhost:5454
 ```
-
 ## To Access Angular Frontend
-
 ```
 $ firefox http://localhost:4200
 ```
-
 ## To Access Flask Python Server Backend
-
 ```
 $ firefox http://localhost:8181
 ```
-
 ## Project API:
 ```
 .
