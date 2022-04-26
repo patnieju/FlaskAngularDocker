@@ -1,0 +1,64 @@
+<div class="container">
+  <!--['id', 'copyright', 'title', 'image', 'datecreated', 'datemodified', 'actions'];-->
+  <h3 mat-dialog-title>Product id: {{data.id}}</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="stopEdit()" #formControl="ngForm">
+
+    <div class="form">
+      <mat-form-field appearance="fill" color="accent">
+        <input #input matInput type="text" (keypress)="numberOnly($event)"  class="form-control" placeholder="Id" [(ngModel)]="data.id" name="id" autocomplete="off" disabled >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <div class="form">
+        <mat-checkbox #input class="form-control" [(ngModel)]="data.copyright">copyright</mat-checkbox>
+    </div>
+
+    <!--Textarea for demo purposes-->
+    <div class="form">
+      <mat-form-field appearance="fill" color="accent">
+        <textarea matInput #input type="text" class="form-control" placeholder="Title" [(ngModel)]="data.title" name="title" autocomplete="off" required >
+        </textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>Image</mat-label>
+        <img [src]="imageSrc" width="100" style="width: inherit"><br/>
+        <input #input matInput type='file' accept="image/*" (change)="onSelectFile($any($event))" name="upload-file">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>datecreated</mat-label>
+        <input matInput #input [matDatepicker]="datecreated" [(ngModel)]="data.datecreated" [value]="data.datecreated" name="datecreated" disabled>
+        <mat-hint>YYYY-MM-DD</mat-hint>
+        <mat-datepicker-toggle [for]="datecreated">
+          <mat-icon matDatepickerToggleIcon>calendar_month</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #datecreated disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>datemodified</mat-label>
+        <input matInput #input [matDatepicker]="datemodified" [(ngModel)]="data.datemodified" [value]="data.datemodified" name="datemodified" disabled>
+        <mat-hint>YYYY-MM-DD</mat-hint>
+        <mat-datepicker-toggle [for]="datemodified">
+          <mat-icon matDatepickerToggleIcon>calendar_month</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #datemodified disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>
