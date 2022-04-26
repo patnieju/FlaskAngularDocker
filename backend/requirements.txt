@@ -1,0 +1,11 @@
+Pillow
+numpy
+pandas
+psycopg2
+flask
+flask_restx
+flask_cors
+flask_sqlalchemy
+flask_migrate
+flask_compress
+user_agents

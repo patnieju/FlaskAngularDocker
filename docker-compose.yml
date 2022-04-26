@@ -1,0 +1,69 @@
+# Run docker-compose build
+# Run docker-compose up
+# Comments represent alternate or optional configurations
+version: "3"
+services:
+
+  postgres:
+   container_name: postgres
+   restart: always
+   build: ./postgresql
+   hostname: postgreshost
+   volumes:
+     - /var/lib/postgresql
+   ports:
+     - "5454:5432"
+   env_file:
+     - .env_docker
+   healthcheck:
+     test: ["CMD-SHELL", "pg_isready -U postgres"]
+     interval: 10s
+     timeout: 5s
+     retries: 5
+   networks:
+      - mynetwork
+
+  backend:
+    image:  backend-flask
+    restart: always
+    build: ./backend
+    hostname: backendhost
+    container_name: "backend-app"
+    env_file:
+     - .env_docker
+    volumes:
+        - ./backend:/app # for watching files
+    ports:
+      - "8081:8081" # if changed, please change port in `frontend/proxy.conf.dev.json`
+    depends_on:
+       - postgres
+    healthcheck:
+       test: curl -f http://localhost:8081
+    networks:
+      - mynetwork
+    links:
+      - postgres
+
+  frontend:
+    image: frontend-angular
+    restart: always
+    build: ./frontend
+    hostname: frontendhost
+    container_name: "frontend-app"
+    env_file:
+     - .env_docker
+    volumes:
+      - ./frontend/src:/app/src # for watching files
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    networks:
+      - mynetwork
+    links:
+      - backend
+
+networks:
+  mynetwork:
+    driver: bridge
+
