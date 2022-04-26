@@ -47,7 +47,6 @@ services:
     ...
 ```
 
-
 ## Deploy with docker-compose
 
 ```
@@ -78,19 +77,19 @@ f593228ca3e5 mercadona_postgres "docker-entrypoint.s…" 11 minutes ago Up 11 mi
 
 $ sudo docker-compose down
 
-## To Access Postgre
+## To Access Postgre SQL
 
 ```
 $ postgresql://localhost:5454
 ```
 
-## To Access Angular
+## To Access Angular Frontend
 
 ```
 $ firefox http://localhost:4200
 ```
 
-## To Access Flask Python Server
+## To Access Flask Python Server Backend
 
 ```
 $ firefox http://localhost:8181
