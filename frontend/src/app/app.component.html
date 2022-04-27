@@ -3,6 +3,7 @@
 <meta http-equiv="Expires" content="0">
 <mat-toolbar class="mercadona">
   <img class="hidden-xs" src="assets/images/mercadona-isotipo-72.png" alt="mercadona" id="logoIsotipo">
+
   <span>Technical Test for Mercadona</span>
   <span class="spacer"></span>
   Reload data:
@@ -42,9 +43,15 @@
 
     <ng-container matColumnDef="image">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-      <mat-cell *matCellDef="let row">  <img width="30" height="30" src="{{row.image}}" /> </mat-cell>
+      <mat-cell *matCellDef="let row">
+        <lightgallery [settings]="settings" [onInit]="onInit">
+          <a href="{{row.image}}">
+            <img width="30" height="30" class='img-zoomable' src="{{row.image}}"/>
+          </a>
+        </lightgallery>
+      </mat-cell>
     </ng-container>
-
+    
     <ng-container matColumnDef="datecreated">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Created at</mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.datecreated}}</mat-cell>
@@ -88,4 +95,5 @@
                  [pageSize]="10"
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
+
 </div>
