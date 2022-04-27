@@ -16,6 +16,7 @@ import {MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS, MAT_MOM
 import {DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material/core';
 import localePy from '@angular/common/locales/es';
 import {registerLocaleData } from '@angular/common';
+import { LightgalleryModule } from 'lightgallery/angular';
 
 registerLocaleData(localePy, 'es');
 
@@ -32,7 +33,8 @@ registerLocaleData(localePy, 'es');
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        LightgalleryModule
     ],
     exports: [
     ],
