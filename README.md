@@ -47,8 +47,8 @@ services:
 ```
 ## Pre Requisites
 
-[Docker](https://docs.docker.com/engine/install)
-[Docker Compose](https://docs.docker.com/compose/install/)
+* 1. [Docker](https://docs.docker.com/engine/install)
+* 2. [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Steps
 ```
