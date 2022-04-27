@@ -47,7 +47,8 @@ services:
 ```
 ## Steps
 ```
-$ https://github.com/eusebiomarquesbenitez/FlaskAngularDocker
+$ cd /usr/src
+$ git clone https://github.com/eusebiomarquesbenitez/FlaskAngularDocker
 $ cd FlaskAngularDocker
 ```
 ## Deploy with docker-compose
