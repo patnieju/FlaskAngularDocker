@@ -1,6 +1,6 @@
 # FlaskAngularDocker
 
-### React application with a Rust backend and a Postgresql database
+### React application with a API backend and a Postgresql database
 
 Project structure:
 ```
