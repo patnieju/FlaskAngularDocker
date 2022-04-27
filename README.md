@@ -46,10 +46,10 @@ services:
 ...
 ```
 ## Pre Requisites
-```
+
 [Docker](https://docs.docker.com/engine/install)
 [Docker Compose](https://docs.docker.com/compose/install/)
-```
+
 ## Steps
 ```
 $ cd /usr/src
