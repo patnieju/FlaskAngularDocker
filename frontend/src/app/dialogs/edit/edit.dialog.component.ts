@@ -62,8 +62,10 @@ export class EditDialogComponent {
     console.log("stopEdit::Edit="+this.data);
     //this.data.datecreated =formatDate(this.data.datecreated,"yyyy-MM-dd","es-ES");
     ///this.data.datemodified =formatDate(this.data.datemodified,"yyyy-MM-dd","es-ES");
-    this.data.image=this.imageSrc;
-    this.data.imagename=this.imagename;
+    if(this.imageSrc){
+      this.data.image=this.imageSrc;
+      this.data.imagename=this.imagename;
+    }
     this.dataService.updateIssue(this.data);
   }
 }
