@@ -27,7 +27,7 @@
     <div class="form">
       <mat-form-field appearance="fill" color="accent">
         <mat-label>Image</mat-label>
-        <img [src]="imageSrc" width="100" style="width: inherit"><br/>
+        <img [src]="imageSrc" width="100" [src]="data.image" style="width: inherit"><br/>
         <input #input matInput type='file' accept="image/*" (change)="onSelectFile($any($event))" name="upload-file">
       </mat-form-field>
     </div>
