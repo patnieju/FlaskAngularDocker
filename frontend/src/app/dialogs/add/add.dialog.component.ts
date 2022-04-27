@@ -61,8 +61,8 @@ export class AddDialogComponent {
     console.log("confirmAdd::Add id="+this.data.id+" data="+this.data);
     //this.data.datecreated =formatDate(this.data.datecreated,"yyyy-MM-dd","es-ES");
     //this.data.datemodified =formatDate(this.data.datemodified,"yyyy-MM-dd","es-ES");
-    //this.data.image=this.imageSrc;
-    //this.data.imagename=this.imagename;
+    this.data.image=this.imageSrc;
+    this.data.imagename=this.imagename;
     this.dataService.addIssue(this.data);
   }
 }
